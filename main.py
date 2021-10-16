@@ -1,14 +1,13 @@
-import pwn
+#import pwn
 import base64
 import hashlib
 
 flag = 'SamaraCTF{7CP_3NCrYP73D_D474_9223}'
 
-#r = pwn.remote('127.0.0.1', 42137)
 try:
     for i in range (3):
-        r.sendline(str(i))
-        x = r.recvline().decode().strip()
+        print(str(i))
+        x = input().strip()
         if x == "base64":
             flag = base64.b64encode(flag.encode()).decode()
         elif x == 'rot13':
@@ -17,9 +16,9 @@ try:
             flag = ''.join(map(lambda x: chr(x),encrypted_target_array))
         elif x == 'md5':
             flag = str(hashlib.md5(flag.encode()).digest())
-    r.sendline(flag)
+    print(flag)
 finally:
-    r.close()
+    pass
 
 
 
