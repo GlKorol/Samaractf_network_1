@@ -4,8 +4,7 @@ import hashlib
 
 flag = 'SamaraCTF{7CP_3NCrYP73D_D474_9223}'
 
-#r = pwn.remote('213.159.213.15', 42137)
-r = pwn.remote('127.0.0.1', 42137)
+#r = pwn.remote('127.0.0.1', 42137)
 try:
     for i in range (3):
         r.sendline(str(i))
